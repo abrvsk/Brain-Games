@@ -1,6 +1,6 @@
 {
   "name": "lvl1s244",
-  "version": "0.0.18",
+  "version": "0.0.22",
   "description": "Brain Games",
   "main": "dist/index.js",
   "scripts": {
@@ -31,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/abrvsk/project-lvl1-s244/issues"
   },
-  "homepage": "https://github.com/abrvsk/project-lvl1-s244#readme"
+  "homepage": "https://github.com/abrvsk/project-lvl1-s244#readme",
+  "dependencies": {}
 }
