@@ -1,6 +1,6 @@
 {
   "name": "lvl1s244",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Brain Games",
   "main": "dist/index.js",
   "scripts": {
@@ -20,7 +20,6 @@
     "url": "git+https://github.com/abrvsk/project-lvl1-s244.git"
   },
   "devDependencies": {
-    "readline-sync": "^1.4.9",
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
@@ -32,5 +31,7 @@
     "url": "https://github.com/abrvsk/project-lvl1-s244/issues"
   },
   "homepage": "https://github.com/abrvsk/project-lvl1-s244#readme",
-  "dependencies": {}
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
 }
