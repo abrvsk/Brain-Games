@@ -1,8 +1,8 @@
 {
   "name": "lvl1s244",
-  "version": "0.0.14",
+  "version": "0.0.18",
   "description": "Brain Games",
-  "main": "brain-games.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "test",
     "babel-node": "babel-node",
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/abrvsk/project-lvl1-s244.git"
   },
   "devDependencies": {
-    "readline-sync": "*",
+    "readline-sync": "^1.4.9",
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
