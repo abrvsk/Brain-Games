@@ -44,9 +44,9 @@ export default () => {
       }
     };
     const d = performOperation(num1, num2, operation);
-    let userAnswer = readlineSync.question(`How much is ${num1} ${operation} ${num2}?\nYour answer: `);
-    userAnswer = toString(userAnswer);
-    return userAnswer === toString(d) ? userMathTesting(acc + 1) : result('exitState');
+    const userAnswer = readlineSync.question(`How much is ${num1} ${operation} ${num2}?\nYour answer: `);
+    const ansToStr = userAnswer.toString();
+    return ansToStr === d.toString() ? userMathTesting(acc + 1) : result('exitState');
   };
   return userMathTesting(0);
 };
