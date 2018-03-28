@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { greetings, truthCheck } from '..';
+import { greetings } from '..';
 
 greetings();
-truthCheck();
