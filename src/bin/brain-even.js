@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import { greetings, truthCheck } from '..';
+import getUserName from '..';
+import oddOrEven from '../games/brain-even';
 
-greetings();
-truthCheck();
+getUserName();
+oddOrEven();

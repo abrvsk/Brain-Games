@@ -1,6 +1,6 @@
 {
   "name": "lvl1s244",
-  "version": "0.0.28",
+  "version": "0.0.44",
   "description": "Brain Games",
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   ],
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "repository": {
     "type": "git",
