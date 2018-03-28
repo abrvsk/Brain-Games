@@ -18,7 +18,7 @@ const randomOpr = () => {
 export default () => {
   getUserName();
   console.log('\nThis challenge wont be that easy!\n\nI hope you\'re ready.');
-  const result = (arg) => {
+  const endStatement = (arg) => {
     if (arg === 'exitState') {
       return console.log('\nToo bad. Come back when you\'re ready.');
     }
@@ -26,7 +26,7 @@ export default () => {
   };
   const userMathTesting = (acc) => {
     if (acc > 2) {
-      return result('passed');
+      return endStatement('passed');
     }
     const num1 = randomNum();
     const num2 = randomNum();
@@ -46,7 +46,7 @@ export default () => {
     const d = performOperation(num1, num2, operation);
     const userAnswer = readlineSync.question(`How much is ${num1} ${operation} ${num2}?\nYour answer: `);
     const ansToStr = userAnswer.toString();
-    return ansToStr === d.toString() ? userMathTesting(acc + 1) : result('exitState');
+    return ansToStr === d.toString() ? userMathTesting(acc + 1) : endStatement('exitState');
   };
   return userMathTesting(0);
 };
