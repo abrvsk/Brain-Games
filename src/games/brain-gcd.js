@@ -1,23 +1,15 @@
 import readlineSync from 'readline-sync';
-import getUserName from '..';
+import { randomNum } from '../brainMath';
 
-const randomNum = () => {
-  let a = Math.random();
-  while (a > 0.99 || a < 0.01) {
-    a = Math.random();
+const endStatement = (arg) => {
+  if (arg === 'exitState') {
+    return console.log('\nToo bad. Come back when you\'re ready.');
   }
-  return Math.floor(a * 100);
+  return console.log('\nHmm. Well done. Let\'s see if you can pass all the challenges.');
 };
 
 export default () => {
-  getUserName();
   console.log('\nYou\'ve done very well so far.\nKeep going, young padavan. Let The Force be with you!\n\nIn this task you have to find the greatest common divisor. For example for the pair (15, 25) greatest common divisor would be 5. No more words. Proove yourself!');
-  const endStatement = (arg) => {
-    if (arg === 'exitState') {
-      return console.log('\nToo bad. Come back when you\'re ready.');
-    }
-    return console.log('\nHmm. Well done. Let\'s see if you can pass all the challenges.');
-  };
   const userGCDTesting = (acc) => {
     if (acc > 2) {
       return endStatement('passed');
