@@ -43,19 +43,19 @@ const gcd = (x, y) => {
 
 const balanceTheNumber = (num) => {
   const newNum = num.toString();
-  const numArray = [];
+  const items = [];
   let i = 0;
-  for (i; i <= newNum.length - 1; i += 1) {
-    numArray.push(num[i]);
+  for (i; i < newNum.length; i += 1) {
+    items.push(newNum[i]);
   }
-  const a = Number(numArray[0]);
-  const b = Number(numArray[newNum.length - 1]) - 1;
-  while (a !== b || a !== b) {
-    numArray[0] = a + 1;
-    numArray[numArray.length - 1] = b - 1;
-    numArray.sort();
+  const last = items.length - 1;
+  items.sort();
+  while (Number(items[0]) !== (Number(items[last]) - 1) && (items[0] !== items[last])) {
+    items[0] = Number(items[0]) + 1;
+    items[last] = Number(items[last]) - 1;
+    items.sort();
   }
-  return numArray.join('').toString();
+  return items.join('');
 };
 
 

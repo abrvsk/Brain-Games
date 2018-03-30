@@ -79,7 +79,8 @@ export const balanceGame = () => {
     }
     const num = randomNum() * 389;
     const userAnswer = readlineSync.question(`\nBalance the number ${num}.\nYour answer: `);
-    return balanceTheNumber(userAnswer, num) === true ? balancingNumber(acc + 1) : endStatement('exitState');
+    console.log(`balance is ${balanceTheNumber(userAnswer, num)}`);
+    return balanceTheNumber(userAnswer, num) === userAnswer ? balancingNumber(acc + 1) : endStatement('exitState');
   };
   balancingNumber(0);
 };
