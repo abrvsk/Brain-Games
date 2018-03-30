@@ -1,5 +1,3 @@
-import readlineSync from 'readline-sync';
-
 const randomNum = () => {
   let a = Math.random();
   while (a > 0.25 || a < 0.01) {
@@ -27,23 +25,38 @@ const performOperation = (a, b, c) => {
   }
 };
 
-const endStatement = (arg) => {
-  if (arg === 'exitState') {
-    return console.log('\nToo bad. Come back when you\'re ready.');
+const gcd = (x, y) => {
+  const a = x > y ? x : y;
+  const b = a === x ? y : x;
+  let result;
+  let i = 1;
+  for (i; i <= b;) {
+    while (i <= b) {
+      if (a % i === 0 && b % i === 0) {
+        result = i;
+      }
+      i += 1;
+    }
   }
-  return console.log('\nHmm. Well done. Let\'s see if you can pass all the challenges.');
+  return result;
 };
 
-const checkNum = (acc) => {
-  if (acc === 0) {
-    const num1 = readlineSync.question('\nLet\'s start then.\nThe first number is 15.\nYour answer is ');
-    return num1 === 'yes' ? checkNum(acc + 1) : endStatement('exitState');
-  } else if (acc === 1) {
-    const num2 = readlineSync.question('\nOkay. Next number is 22.\nYour answer is ');
-    return num2 === 'no' ? checkNum(acc + 1) : endStatement('exitState');
+const balanceTheNumber = (num) => {
+  const newNum = num.toString();
+  const numArray = [];
+  let i = 0;
+  for (i; i <= newNum.length - 1; i += 1) {
+    numArray.push(num[i]);
   }
-  const num3 = readlineSync.question('\nGood. Last number is 1689613.\nYour answer is ');
-  return num3 === 'yes' ? endStatement('succesState') : endStatement('exitState');
+  const a = Number(numArray[0]);
+  const b = Number(numArray[newNum.length - 1]) - 1;
+  while (a !== b || a !== b) {
+    numArray[0] = a + 1;
+    numArray[numArray.length - 1] = b - 1;
+    numArray.sort();
+  }
+  return numArray.join('').toString();
 };
 
-export { randomNum, randomOpr, performOperation, endStatement, checkNum };
+
+export { randomNum, randomOpr, performOperation, gcd, balanceTheNumber };

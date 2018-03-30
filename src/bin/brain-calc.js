@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import userMathTesting from '../games/calc';
-import getUserName from '..';
+import { calcGame } from '..';
 
-getUserName();
-userMathTesting();
+calcGame();

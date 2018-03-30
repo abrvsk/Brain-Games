@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import getUserName, { displayOptions } from '..';
+import displayOptions from '..';
 
-getUserName();
 displayOptions();

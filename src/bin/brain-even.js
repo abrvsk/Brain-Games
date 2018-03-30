@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import oddOrEven from '../games/brain-even';
-import getUserName from '..';
+import { oddOrEven } from '..';
 
-getUserName();
 oddOrEven();
