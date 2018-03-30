@@ -1,3 +1,6 @@
 import { balanceTheNumber } from '../brainMath';
 
-export default (userAnswer, number) => balanceTheNumber(number) === userAnswer;
+export default (userAnswer, number) => {
+  const a = balanceTheNumber(number);
+  return a === userAnswer;
+};

@@ -1,8 +1,9 @@
 import readlineSync from 'readline-sync';
 import oddOrEvenCheck from './games/odd-or-even';
-import { randomNum, randomOpr, balanceTheNumber } from './brainMath';
+import { randomNum, randomOpr } from './brainMath';
 import calc from './games/calc';
 import gcdCheck from './games/gcd';
+import balanceTheNumber from './games/balance';
 
 const endStatement = (arg) => {
   if (arg === 'exitState') {
@@ -79,8 +80,7 @@ export const balanceGame = () => {
     }
     const num = randomNum() * 389;
     const userAnswer = readlineSync.question(`\nBalance the number ${num}.\nYour answer: `);
-    console.log(`balance is ${balanceTheNumber(userAnswer, num)}`);
-    return balanceTheNumber(userAnswer, num) === userAnswer ? balancingNumber(acc + 1) : endStatement('exitState');
+    return balanceTheNumber(userAnswer, num) === true ? balancingNumber(acc + 1) : endStatement('exitState');
   };
-  balancingNumber(0);
+  return balancingNumber(0);
 };
