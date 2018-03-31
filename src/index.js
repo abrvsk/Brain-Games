@@ -1,5 +1,10 @@
 import readlineSync from 'readline-sync';
 
+export const pair = (x, y) => f => f(x, y);
+
+export const head = f => f(x => x);
+export const tail = f => f((x, y) => y);
+
 const endStatement = (arg, userName) => {
   if (arg === 'exitState') {
     return console.log('\nToo bad. Come back when you\'re ready.');
@@ -21,12 +26,18 @@ export const displayOptions = () => {
   console.log('\n\nWhich one will you choose?');
 };
 
-export const gameEngine = (acc, userName, quiz) => {
-  if (acc === 'success') {
-    return endStatement('ha!', userName);
-  } else if (acc === 'end') {
-    return endStatement('exitState', userName);
+export const gameEngine = (gameName, startPhrase) => {
+  const userName = getUserName();
+  console.log(startPhrase);
+  for (let i = 0; i < 3; i += 1) {
+    const data = gameName('getNum');
+    const arg = head(data);
+    const answer = tail(data);
+    const question = readlineSync.question(`\nQuestion: ${arg}.\nYour answer: `);
+    if (question !== answer) {
+      return endStatement('exitState');
+    }
+    console.log('Correct!');
   }
-  const answer = readlineSync.question(quiz);
-  return answer;
+  return endStatement('ha!', userName);
 };

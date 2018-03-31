@@ -1,23 +1,29 @@
-import { gameEngine, getUserName } from '..';
-import { randomNum, gcd } from '../brainMath';
+import { gameEngine, pair } from '..';
+import { randomNum } from '../brainMath';
 
-const gcdCheck = (userAnswer, num1, num2) => {
-  const a = gcd(num1, num2);
-  return a.toString() === userAnswer;
+export const gcd = (x, y) => {
+  const a = x > y ? x : y;
+  const b = a === x ? y : x;
+  let result;
+  let i = 1;
+  for (i; i <= b;) {
+    while (i <= b) {
+      if (a % i === 0 && b % i === 0) {
+        result = i;
+      }
+      i += 1;
+    }
+  }
+  return result;
 };
 
-export default () => {
-  const userName = getUserName();
-  console.log('In this task you have to find the greatest common divisor. For example for the pair (15, 25) greatest common divisor would be 5. No more words. Proove yourself!');
-  const userGCDTesting = (acc) => {
-    const num1 = randomNum();
-    const num2 = randomNum();
-    if (acc > 2) {
-      return gameEngine('success', userName);
-    }
-    const quiz = `\nQuestion: ${num1} and ${num2}?\nYour answer: `;
-    const answer = gcdCheck(gameEngine(acc, userName, quiz), num1, num2);
-    return answer === true ? userGCDTesting(acc + 1) : gameEngine('end', userName);
-  };
-  return userGCDTesting(0);
+export const gcdGame = (arg) => {
+  const num1 = randomNum();
+  const num2 = randomNum();
+  const correct = gcd(num1, num2);
+  const num = `${num1} ${num2}`;
+  if (arg === 'getNum') {
+    return pair(num, correct.toString());
+  }
+  return gameEngine(gcdGame, 'Find the greatest common divisor of given numbers.');
 };

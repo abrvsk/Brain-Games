@@ -1,24 +1,28 @@
-import { balanceTheNumber, randomNum } from '../brainMath';
-import { gameEngine, getUserName } from '..';
+import { randomNum } from '../brainMath';
+import { gameEngine, pair } from '..';
 
-const balanceCheck = (userAnswer, number) => {
-  const a = balanceTheNumber(number);
-  return a === userAnswer;
+export const balanceTheNumber = (num) => {
+  const newNum = num.toString();
+  const items = [];
+  let i = 0;
+  for (i; i < newNum.length; i += 1) {
+    items.push(newNum[i]);
+  }
+  const last = items.length - 1;
+  items.sort();
+  while (Number(items[0]) !== (Number(items[last]) - 1) && (items[0] !== items[last])) {
+    items[0] = Number(items[0]) + 1;
+    items[last] = Number(items[last]) - 1;
+    items.sort();
+  }
+  return items.join('');
 };
 
-export default () => {
-  const userName = getUserName();
-  console.log('\nIn this challenge you will need to balance a number.');
-  console.log('\n\nFor example, let\'s take number 124. Balanced number would be 223. Or let\'s take 4182. Balanced number would be 3444.');
-  const balancingNumber = (acc) => {
-    const num = randomNum() * 389;
-    if (acc > 2) {
-      return gameEngine('success', userName);
-    }
-    const quiz = `\nBalance the number ${num}.\nYour answer: `;
-    const answer = balanceCheck(gameEngine(acc, userName, quiz), num);
-    return answer === true ? balancingNumber(acc + 1) : gameEngine('end', userName);
-  };
-  return balancingNumber(0);
+export const balanceGame = (arg) => {
+  const num = randomNum() * 389;
+  const correct = balanceTheNumber(num);
+  if (arg === 'getNum') {
+    return pair(num, correct);
+  }
+  return gameEngine(balanceGame, 'Balance the given number.');
 };
-
