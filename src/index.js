@@ -29,15 +29,15 @@ export const displayOptions = () => {
 export const gameEngine = (gameName, startPhrase) => {
   const userName = getUserName();
   console.log(startPhrase);
-  for (let i = 0; i < 3; i += 1) {
+  const roundCounter = (acc) => {
+    if (acc > 2) {
+      return endStatement('ha!', userName);
+    }
     const data = gameName('getNum');
     const arg = head(data);
     const answer = tail(data);
     const question = readlineSync.question(`\nQuestion: ${arg}.\nYour answer: `);
-    if (question !== answer) {
-      return endStatement('exitState');
-    }
-    console.log('Correct!');
-  }
-  return endStatement('ha!', userName);
+    return (question !== answer) ? endStatement('exitState') : (console.log('Correct!'), roundCounter(acc + 1));
+  };
+  roundCounter(0);
 };
