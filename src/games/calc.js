@@ -21,7 +21,7 @@ export const calcGame = (arg) => {
   const num = `${num1} ${operation} ${num2}`;
   const correct = performOperation(num1, num2, operation);
   if (arg === 'start') {
-    return gameEngine(calcGame, 'What is the result of the expression?.');
+    return gameEngine(calcGame, 'What is the result of the expression?');
   }
   return pair(num, correct.toString());
 };
