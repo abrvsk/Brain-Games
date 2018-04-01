@@ -28,14 +28,14 @@ export const displayOptions = () => {
   console.log('\n\nWhich one will you choose?');
 };
 
-export const gameEngine = (gameName, startPhrase) => {
+export const gameEngine = (getData, startPhrase) => {
   const userName = getUserName();
   console.log(`\n${startPhrase}`);
   const roundCounter = (acc) => {
     if (acc > 2) {
       return endStatement('ha!', userName);
     }
-    const data = gameName();
+    const data = getData();
     const arg = head(data);
     const answer = tail(data);
     const question = readlineSync.question(`\nQuestion: ${arg}.\nYour answer: `);
