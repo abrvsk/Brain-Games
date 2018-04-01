@@ -23,8 +23,8 @@ export const displayOptions = () => {
   console.log('\nYou are about to start a chalenge. So far you have these options:\na) Odd or Even? To start simply type "brain-even"');
   console.log('\nb) Calculate the equation. Type "brain-calc"');
   console.log('\nc) Find The Greatest Common Divisor by typing "brain-gcd"');
-  console.log('\nc) Balance The Number by typing "brain-balance"');
-  console.log('\nc) Arithmetic Progression "brain-progression"');
+  console.log('\nd) Balance The Number by typing "brain-balance"');
+  console.log('\ne) Arithmetic Progression "brain-progression"');
   console.log('\n\nWhich one will you choose?');
 };
 
