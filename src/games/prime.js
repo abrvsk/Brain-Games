@@ -1,12 +1,5 @@
 import { gameEngine, pair } from '..';
-
-export const randomNum = () => {
-  let a = Math.random();
-  while (a > 0.99 || a < 0.01) {
-    a = Math.random();
-  }
-  return Math.floor(a * 100);
-};
+import { randomNum } from '../brainMath';
 
 const isPrime = (numToCheck) => {
   const primeCheck = (num, acc) => {
@@ -21,11 +14,10 @@ const isPrime = (numToCheck) => {
   return primeCheck(numToCheck, 2);
 };
 
-export const primeGame = (arg) => {
+export const primeGame = () => {
   const num = randomNum();
   const correct = isPrime(num) ? 'yes' : 'no';
-  if (arg === 'start') {
-    return gameEngine(primeGame, 'Answer "yes" if the number is prime otherwise answer "no".');
-  }
   return pair(num, correct);
 };
+
+export const gameStart = () => gameEngine(primeGame, 'What number is missing in this progression?');

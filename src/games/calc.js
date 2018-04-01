@@ -14,14 +14,13 @@ export const performOperation = (a, b, c) => {
   }
 };
 
-export const calcGame = (arg) => {
+export const calcGame = () => {
   const num1 = randomNum();
   const num2 = randomNum();
   const operation = randomOpr();
   const num = `${num1} ${operation} ${num2}`;
   const correct = performOperation(num1, num2, operation);
-  if (arg === 'start') {
-    return gameEngine(calcGame, 'What is the result of the expression?');
-  }
   return pair(num, correct.toString());
 };
+
+export const gameStart = () => gameEngine(calcGame, 'What is the result of the expression?');

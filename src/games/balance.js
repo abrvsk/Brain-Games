@@ -30,11 +30,10 @@ export const balanceTheNumber = (num) => {
   return items.join('');
 };
 
-export const balanceGame = (arg) => {
+export const balanceGame = () => {
   const num = randomNum() * 389;
   const correct = balanceTheNumber(num);
-  if (arg === 'start') {
-    return gameEngine(balanceGame, 'Balance the given number.');
-  }
   return pair(num, correct);
 };
+
+export const gameStart = () => gameEngine(balanceGame, 'Balance the given number.');

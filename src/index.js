@@ -35,7 +35,7 @@ export const gameEngine = (gameName, startPhrase) => {
     if (acc > 2) {
       return endStatement('ha!', userName);
     }
-    const data = gameName('getNum');
+    const data = gameName();
     const arg = head(data);
     const answer = tail(data);
     const question = readlineSync.question(`\nQuestion: ${arg}.\nYour answer: `);

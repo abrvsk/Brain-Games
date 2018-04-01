@@ -1,6 +1,6 @@
 const randomNum = () => {
   let a = Math.random();
-  while (a > 0.25 || a < 0.03) {
+  while (a > 0.99 || a < 0.01) {
     a = Math.random();
   }
   return Math.floor(a * 100);
@@ -12,4 +12,11 @@ const randomOpr = () => {
   return str;
 };
 
-export { randomNum, randomOpr };
+const gcd = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+};
+
+export { randomNum, randomOpr, gcd };
