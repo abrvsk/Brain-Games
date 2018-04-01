@@ -2,4 +2,4 @@
 
 import { balanceGame } from '../games/balance';
 
-balanceGame();
+balanceGame('start');

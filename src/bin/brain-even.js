@@ -2,4 +2,4 @@
 
 import { oddOrEven } from '../games/odd-or-even';
 
-oddOrEven();
+oddOrEven('start');

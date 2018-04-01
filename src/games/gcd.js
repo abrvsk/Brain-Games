@@ -1,20 +1,11 @@
 import { gameEngine, pair } from '..';
 import { randomNum } from '../brainMath';
 
-export const gcd = (x, y) => {
-  const a = x > y ? x : y;
-  const b = a === x ? y : x;
-  let result;
-  let i = 1;
-  for (i; i <= b;) {
-    while (i <= b) {
-      if (a % i === 0 && b % i === 0) {
-        result = i;
-      }
-      i += 1;
-    }
+export const gcd = (a, b) => {
+  if (b === 0) {
+    return a;
   }
-  return result;
+  return gcd(b, a % b);
 };
 
 export const gcdGame = (arg) => {
@@ -22,8 +13,8 @@ export const gcdGame = (arg) => {
   const num2 = randomNum();
   const correct = gcd(num1, num2);
   const num = `${num1} ${num2}`;
-  if (arg === 'getNum') {
-    return pair(num, correct.toString());
+  if (arg === 'start') {
+    return gameEngine(gcdGame, 'Find the greatest common divisor of given numbers.');
   }
-  return gameEngine(gcdGame, 'Find the greatest common divisor of given numbers.');
+  return pair(num, correct.toString());
 };

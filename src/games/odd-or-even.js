@@ -11,8 +11,8 @@ export const randomNum = () => {
 export const oddOrEven = (arg) => {
   const num = randomNum();
   const correct = (num % 2 === 0) ? 'yes' : 'no';
-  if (arg === 'getNum') {
-    return pair(num, correct);
+  if (arg === 'start') {
+    return gameEngine(oddOrEven, 'Answer "yes" if the number is even otherwise answer "no".');
   }
-  return gameEngine(oddOrEven, '\nAnswer "yes" if the number is even otherwise answer "no".');
+  return pair(num, correct);
 };

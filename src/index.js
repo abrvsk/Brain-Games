@@ -28,7 +28,7 @@ export const displayOptions = () => {
 
 export const gameEngine = (gameName, startPhrase) => {
   const userName = getUserName();
-  console.log(startPhrase);
+  console.log(`\n${startPhrase}`);
   const roundCounter = (acc) => {
     if (acc > 2) {
       return endStatement('ha!', userName);
